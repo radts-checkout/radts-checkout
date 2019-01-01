@@ -21,7 +21,7 @@
         <el-menu :default-active="activeIndex" class="el-menu-vertical el-menu-collapse-vertical" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :unique-opened="true" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
             <el-submenu v-for="(item,index) in menuList" :key="index" :index='item.id'>
                 <template slot="title">
-                    <i :class="item.icon"></i>
+                    <i :class="item.icon" style="width:30px;"></i>
                     <span>{{item.title}}</span>
                 </template>
                 <el-menu-item-group >
@@ -71,17 +71,29 @@ export default {
       isActive: '',
       menuList: [
         {
-          id: '1',
-          title: '导航一',
-          icon: 'el-icon-location',
+          id: '0',
+          title: '设置',
+          icon: 'el-icon-setting',
           children: [
             {
-              id: '11',
+              id: '01',
               index: '/manage/instructions',
               title: '使用说明'
             },
             {
-              id: '12',
+              id: '02',
+              index: '/manage/setting',
+              title: '参数设置'
+            }
+          ]
+        },
+        {
+          id: '1',
+          title: '预约挂号',
+          icon: 'iconfont icon-registration1',
+          children: [
+            {
+              id: '11',
               index: '/manage/page1',
               title: '导航1page1'
             }
@@ -89,8 +101,8 @@ export default {
         },
         {
           id: '2',
-          title: '导航二',
-          icon: 'el-icon-menu',
+          title: '挂号结算',
+          icon: 'iconfont icon-gaiicon-',
           children: [
             {
               id: '21',
@@ -101,8 +113,8 @@ export default {
         },
         {
           id: '3',
-          title: '导航三',
-          icon: 'el-icon-document',
+          title: '预约检查',
+          icon: 'iconfont icon-examine',
           children: [
             {
               id: '31',
@@ -113,8 +125,32 @@ export default {
         },
         {
           id: '4',
-          title: '导航四',
-          icon: 'el-icon-setting',
+          title: '预约检验',
+          icon: 'iconfont icon-checkout2',
+          children: [
+            {
+              id: '41',
+              index: '/manage/page4',
+              title: '导航2page4'
+            }
+          ]
+        },
+        {
+          id: '5',
+          title: '预约住院',
+          icon: 'iconfont icon-in_hospital',
+          children: [
+            {
+              id: '41',
+              index: '/manage/page4',
+              title: '导航2page4'
+            }
+          ]
+        },
+        {
+          id: '6',
+          title: '预约手术',
+          icon: 'iconfont icon-surgery',
           children: [
             {
               id: '41',
@@ -149,7 +185,14 @@ export default {
       }
     },
     logOut () {
-      this.$router.push({ path: '/' })
+      this.$confirm('是否继续退出?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'info'
+      }).then(() => {
+        this.$store.state.openTab.length = 0
+        this.$router.push({ path: '/' })
+      }).catch(() => {})
     },
     addTab (targetName) {
       let itemTab = this.editableTabs.find((value, index, arr) => {
@@ -219,14 +262,15 @@ export default {
     // 当当前路由是首页时，添加首页到store，并设置激活状态
     console.log(this.$route.path)
     // 刷新时以当前路由做为tab加入tabs
+    let instructions = {route: '/manage/instructions', name: '使用说明', closable: false}
     if (this.$route.path !== '/index' && this.$route.path !== '/manage/instructions') {
       console.log('1')
-      this.$store.commit('add_tabs', {route: '/manage/instructions', name: '使用说明', closable: false})
+      this.$store.commit('add_tabs', instructions)
       this.$store.commit('add_tabs', {route: this.$route.path, name: this.$route.name, closable: true})
       this.$store.commit('set_active_index', this.$route.path)
     } else {
       console.log('2')
-      this.$store.commit('add_tabs', {route: '/manage/instructions', name: '使用说明', closable: false})
+      this.$store.commit('add_tabs', instructions)
       this.$store.commit('set_active_index', '/manage/instructions')
       this.$router.push('/index')
     }
@@ -282,6 +326,13 @@ export default {
 $bg:#2d3a4b;
 $bg2:#fff;
 
+.el-menu-item {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      min-width: 178px;
+}
+
 .index-container {
     position: fixed;
     height: 100%;
@@ -309,7 +360,7 @@ $bg2:#fff;
         background: url(../../../static/img/logo.png) no-repeat left -64px;
         padding-left: 160px;
         box-sizing: border-box;
-        color: #FFF;
+        color: #545c64;
         line-height: 50px;
         font-size: 20px;
     }
@@ -340,7 +391,7 @@ $bg2:#fff;
     .el-submenu .el-menu-item {
         height: 40px;
         line-height: 40px;
-        padding: 0 40px;
+        padding: 0 20px;
         min-width: 178px;
     }
     .el-show-color {

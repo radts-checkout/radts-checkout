@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/home/Login'
 import Index from '@/components/home/Index'
 import Instructions from '@/components/manage/Instructions'
+import Setting from '@/components/manage/Setting'
 import page1 from '@/components/manage/page1'
 import page2 from '@/components/manage/page2'
 import page3 from '@/components/manage/page3'
@@ -28,6 +29,11 @@ export default new Router({
           path: '/manage/instructions',
           name: '使用说明',
           component: Instructions
+        },
+        {
+          path: '/manage/setting',
+          name: '参数设置',
+          component: Setting
         },
         {
           path: '/manage/page1',

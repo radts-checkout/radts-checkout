@@ -12,7 +12,9 @@ export default new Vuex.Store({
   mutations: {
     // 添加tabs
     add_tabs (state, data) {
-      this.state.openTab.push(data)
+      if (this.state.openTab.indexOf(data) < 0) {
+        this.state.openTab.push(data)
+      }
     },
     // 删除tabs
     delete_tabs (state, route) {
