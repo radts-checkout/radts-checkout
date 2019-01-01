@@ -2,9 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css' // 避免后期打包样式不同，要放在import App from './App';之前
+import 'element-ui/lib/theme-chalk/index.css'
+import '../static/css/rest.scss' // rsest css
+import '../static/css/index.scss' // global css
+import '../static/fonts/iconfont.css' // fonts css
 import App from './App'
 import router from './router'
+import store from './store'
 
 var axios = require('axios')
 axios.defaults.baseURL = 'http://localhost:8083/api'
@@ -17,6 +21,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

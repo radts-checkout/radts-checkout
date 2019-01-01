@@ -1,0 +1,19 @@
+
+server:
+  port: 8083
+  tomcat:
+    uri-encoding: UTF-8
+    max-connections: 100
+    max-threads: 100
+
+spring:
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://192.168.1.41:3306/cloudplate
+    username: root
+    password: mediinfo#123
+    driver-class-name: com.mysql.jdbc.Driver
