@@ -21,7 +21,7 @@
         <el-menu :default-active="activeIndex" class="el-menu-vertical el-menu-collapse-vertical" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :unique-opened="true" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
             <el-submenu v-for="(item,index) in menuList" :key="index" :index='item.id'>
                 <template slot="title">
-                    <i :class="item.icon" style="width:30px;"></i>
+                    <i :class="item.icon"></i>
                     <span>{{item.title}}</span>
                 </template>
                 <el-menu-item-group >
@@ -90,7 +90,7 @@ export default {
         {
           id: '1',
           title: '预约挂号',
-          icon: 'iconfont icon-registration1',
+          icon: 'iconfont icon-registration1 icon-right',
           children: [
             {
               id: '11',
@@ -102,7 +102,7 @@ export default {
         {
           id: '2',
           title: '挂号结算',
-          icon: 'iconfont icon-gaiicon-',
+          icon: 'iconfont icon-gaiicon- icon-right',
           children: [
             {
               id: '21',
@@ -114,7 +114,7 @@ export default {
         {
           id: '3',
           title: '预约检查',
-          icon: 'iconfont icon-examine',
+          icon: 'iconfont icon-examine icon-right',
           children: [
             {
               id: '31',
@@ -126,7 +126,7 @@ export default {
         {
           id: '4',
           title: '预约检验',
-          icon: 'iconfont icon-checkout2',
+          icon: 'iconfont icon-checkout2 icon-right',
           children: [
             {
               id: '41',
@@ -138,7 +138,7 @@ export default {
         {
           id: '5',
           title: '预约住院',
-          icon: 'iconfont icon-in_hospital',
+          icon: 'iconfont icon-in_hospital icon-right',
           children: [
             {
               id: '41',
@@ -150,7 +150,7 @@ export default {
         {
           id: '6',
           title: '预约手术',
-          icon: 'iconfont icon-surgery',
+          icon: 'iconfont icon-surgery icon-right',
           children: [
             {
               id: '41',
@@ -360,7 +360,7 @@ $bg2:#fff;
         background: url(../../../static/img/logo.png) no-repeat left -64px;
         padding-left: 160px;
         box-sizing: border-box;
-        color: #545c64;
+        color: #fff;
         line-height: 50px;
         font-size: 20px;
     }
@@ -371,13 +371,14 @@ $bg2:#fff;
         box-sizing: border-box;
         line-height: 50px;
         font-size: 14px;
+        color: #fff;
     }
     .logout {
         height: 48px;
         width: 40px;
         margin-left: 12px;
         font-size: 16px;
-        color: #889aa4;
+        color: #fff;
         cursor: pointer;
     }
     .el-menu-vertical:not(.el-menu--collapse) {
@@ -399,6 +400,23 @@ $bg2:#fff;
     }
     .el-tabs__content {
       display: none;
+    }
+    .el-menu--collapse {
+      width: auto;
+    }
+    div.el-col-1 .el-submenu__title {
+      font-size: 14px;
+      color: #303133;
+      padding: 0 20px;
+      cursor: pointer;
+      -webkit-transition: border-color .3s,background-color .3s,color .3s;
+      transition: border-color .3s,background-color .3s,color .3s;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .icon-right:before {
+      margin-right: 8px;
     }
     // .el-tabs-color {
     //     background-color: rgb(84, 92, 100);

@@ -1,4 +1,5 @@
 /target/
+/src/mian/resources/static
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
