@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { CookieUtil } from '@/utils/tools'
 
 export default {
   name: 'Index',
@@ -64,10 +65,10 @@ export default {
       editableTabsValue: '1',
       tabIndex: 1,
       editableTabs: [],
-      isCollapse: true,
+      isCollapse: false,
       isZheDie: '',
-      isZheDie1: 'icon-zhedie1',
-      menuSpans: 1,
+      isZheDie1: 'icon-zhedie',
+      menuSpans: 3,
       isActive: '',
       menuList: [
         {
@@ -175,13 +176,13 @@ export default {
     handleOpenShow () {
       this.isCollapse = !this.isCollapse
       if (this.isZheDie === '') {
-        this.isZheDie = 'icon-zhedie'
+        this.isZheDie = 'icon-zhedie1'
         this.isZheDie1 = ''
-        this.menuSpans = 3
+        this.menuSpans = 1
       } else {
         this.isZheDie = ''
-        this.isZheDie1 = 'icon-zhedie1'
-        this.menuSpans = 1
+        this.isZheDie1 = 'icon-zhedie'
+        this.menuSpans = 3
       }
     },
     logOut () {
@@ -191,6 +192,7 @@ export default {
         type: 'info'
       }).then(() => {
         this.$store.state.openTab.length = 0
+        CookieUtil.delCookie('radts_token')
         this.$router.push({ path: '/' })
       }).catch(() => {})
     },

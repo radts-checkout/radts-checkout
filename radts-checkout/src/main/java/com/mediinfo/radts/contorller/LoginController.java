@@ -1,11 +1,14 @@
 package com.mediinfo.radts.contorller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import com.mediinfo.radts.dao.UserDao;
 import com.mediinfo.radts.pojo.ResultFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.http.HttpRequest;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.mediinfo.radts.pojo.Result;
@@ -26,7 +29,7 @@ public class LoginController {
     @CrossOrigin
     @RequestMapping(value = "login", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
     @ResponseBody
-    public Result login(@Valid @RequestBody User userInfo, BindingResult bindingResult) {
+    public Result login(@Valid @RequestBody User userInfo, HttpServletRequest request, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String message = String.format("登陆失败，详细信息[%s]。", bindingResult.getFieldError().getDefaultMessage());
             return ResultFactory.buildFailResult(message);
@@ -40,7 +43,7 @@ public class LoginController {
             //String message = String.format("登陆失败，详细信息[用户名、密码信息不正确]。");
             //return ResultFactory.buildFailResult(message);
         ///}
-        return ResultFactory.buildSuccessResult("登陆成功。");
+        return ResultFactory.buildSuccessResult(request.getSession().getId());
     }
 
     @GetMapping("/{id}")

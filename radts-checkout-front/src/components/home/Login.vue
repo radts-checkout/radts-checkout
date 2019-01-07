@@ -32,6 +32,7 @@
 
 <script>
 import { isvalidUsername } from '@/utils/validate'
+import { CookieUtil } from '@/utils/tools'
 
 export default {
   name: 'Login',
@@ -83,8 +84,13 @@ export default {
           this.loading = true
           this.$axios.post('/login', this.loginForm).then(successResponse => {
             this.responseResult = JSON.stringify(successResponse.data)
+            console.log(successResponse.data)
             if (successResponse.data.code === 200) {
               this.loading = false
+              CookieUtil.setCookie('radts_token', successResponse.data.data, 0.0208333, '/') // 30分钟
+              // CookieUtil.setCookie('radts_token', successResponse.data.data, 0.0013889, '/') // 2分钟
+              // CookieUtil.setCookie('radts_token', successResponse.data.data, 0.0002315, '/') // 20秒
+              sessionStorage.setItem('radts_token', successResponse.data.data)
               this.$router.push({ path: '/index' })
               // this.$router.replace({path: '/index'})
             }
