@@ -48,7 +48,10 @@
                 </el-tab-pane>
             </el-tabs>
             <div class="el-fullheight">
-                <router-view/>
+              <keep-alive>
+                <router-view v-if="$route.meta.keepAlive"></router-view>
+              </keep-alive>
+              <router-view v-if="!$route.meta.keepAlive"></router-view>
             </div>
       </el-col>
     </el-row>

@@ -32,7 +32,8 @@ export default new Router({
           name: '使用说明',
           component: Instructions,
           meta: {
-            requireAuth: true // 添加该字段，表示进入这个路由是需要登录的
+            requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
+            keepAlive: true
           }
         },
         {
@@ -56,7 +57,8 @@ export default new Router({
           name: 'page1',
           component: page1,
           meta: {
-            requireAuth: true
+            requireAuth: true,
+            keepAlive: true
           }
         },
         {
@@ -64,7 +66,8 @@ export default new Router({
           name: 'page2',
           component: page2,
           meta: {
-            requireAuth: true
+            requireAuth: true,
+            keepAlive: true
           }
         },
         {
@@ -72,7 +75,8 @@ export default new Router({
           name: 'page3',
           component: page3,
           meta: {
-            requireAuth: true
+            requireAuth: true,
+            keepAlive: true
           }
         },
         {
@@ -80,7 +84,8 @@ export default new Router({
           name: 'page4',
           component: page4,
           meta: {
-            requireAuth: true
+            requireAuth: true,
+            keepAlive: true
           }
         }
       ]
