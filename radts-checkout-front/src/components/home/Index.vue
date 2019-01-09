@@ -95,6 +95,11 @@ export default {
           children: [
             {
               id: '11',
+              index: '/yygh/yishengjsxx',
+              title: '医生介绍信息'
+            },
+            {
+              id: '12',
               index: '/manage/page1',
               title: '导航1page1'
             }
