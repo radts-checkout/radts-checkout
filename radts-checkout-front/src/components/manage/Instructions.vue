@@ -11,7 +11,7 @@
             <el-form-item label="邮箱" prop="fromEmail">
               <el-input v-model="form.fromEmail"></el-input>
             </el-form-item>
-              <el-form-item label="意见/建议" prop="fromMsg">
+            <el-form-item label="意见/建议" prop="fromMsg">
               <el-input type="textarea" v-model="form.fromMsg" :rows="6"></el-input>
             </el-form-item>
             <el-form-item>
