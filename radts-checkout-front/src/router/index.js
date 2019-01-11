@@ -49,7 +49,8 @@ export default new Router({
           name: '医生介绍信息',
           component: yishengjsxx,
           meta: {
-            requireAuth: true
+            requireAuth: true,
+            keepAlive: true
           }
         },
         {
