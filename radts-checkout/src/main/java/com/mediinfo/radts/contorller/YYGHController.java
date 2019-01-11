@@ -23,9 +23,9 @@ import java.nio.charset.Charset;
 @RequestMapping("/api/yygh")
 public class YYGHController {
     @CrossOrigin
-    @RequestMapping(value = "DoGUAHAOKSXX", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
+    @RequestMapping(value = "do_guahaokexx", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
     @ResponseBody
-    public Result DoGUAHAOKSXX(@Valid @RequestBody GUAHAOKSXX KeShiInfo, HttpServletRequest request, BindingResult bindingResult) {
+    public Result do_guahaokexx(@Valid @RequestBody GUAHAOKSXX KeShiInfo, HttpServletRequest request, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String message = String.format("登陆失败，详细信息[%s]。", bindingResult.getFieldError().getDefaultMessage());
             return ResultFactory.buildFailResult(message);

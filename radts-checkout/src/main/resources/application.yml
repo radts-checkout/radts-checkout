@@ -17,3 +17,6 @@ spring:
     username: root
     password: mediinfo#123
     driver-class-name: com.mysql.jdbc.Driver
+
+logback:
+  path: 'd:/radts_log/'
