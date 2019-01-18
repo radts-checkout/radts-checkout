@@ -24,4 +24,9 @@ public class HelloContorller {
         log.error("error....");
         return port;
     }
+
+    @RequestMapping(value = "/yishengxx", method = RequestMethod.POST)
+    public String yishengxx(){
+        return String.valueOf(123);
+    }
 }

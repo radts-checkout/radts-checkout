@@ -18,5 +18,7 @@ spring:
     password: mediinfo#123
     driver-class-name: com.mysql.jdbc.Driver
 
-logback:
-  path: 'd:/radts_log/'
+email:
+  user: yanghongqi23@126.com
+  password: hhbvaj23
+  touserlist: liuzhigang@mediinfo.com.cn,yanghongqi@mediinfo.com.cn
