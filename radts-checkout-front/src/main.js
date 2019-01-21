@@ -13,7 +13,7 @@ import { CookieUtil } from '@/utils/tools'
 import VueHighlightJS from 'vue-highlightjs'
 
 var axios = require('axios')
-axios.defaults.baseURL = 'http://192.168.32.129:8083//api'
+axios.defaults.baseURL = 'http://localhost:8083/api'
 // 将API方法绑定到全局
 Vue.prototype.$axios = axios
 Vue.use(ElementUI)
