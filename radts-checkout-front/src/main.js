@@ -14,6 +14,7 @@ import VueHighlightJS from 'vue-highlightjs'
 
 var axios = require('axios')
 axios.defaults.baseURL = 'http://localhost:8083/api'
+
 // 将API方法绑定到全局
 Vue.prototype.$axios = axios
 Vue.use(ElementUI)
