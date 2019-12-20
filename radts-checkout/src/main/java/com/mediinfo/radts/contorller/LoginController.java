@@ -13,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.mediinfo.radts.pojo.Result;
 import com.mediinfo.radts.pojo.User;
+
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -39,10 +41,11 @@ public class LoginController {
             String message = String.format("登陆失败，详细信息[用户名、密码信息不正确]。");
             return ResultFactory.buildFailResult(message);
         }
-        //if (!Objects.equals("admin", userInfo.getUsername()) || !Objects.equals("admin", userInfo.getPassword())) {
-            //String message = String.format("登陆失败，详细信息[用户名、密码信息不正确]。");
-            //return ResultFactory.buildFailResult(message);
-        ///}
+        if (!Objects.equals("admin", userInfo.getUsername()) || !Objects.equals("admin", userInfo.getPassword())) {
+            String message = String.format("登陆失败，详细信息[用户名、密码信息不正确]。");
+            return ResultFactory.buildFailResult(message);
+        }
+
         return ResultFactory.buildSuccessResult(request.getSession().getId());
     }
 

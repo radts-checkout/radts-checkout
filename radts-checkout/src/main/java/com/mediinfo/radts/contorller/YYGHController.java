@@ -30,6 +30,7 @@ public class YYGHController {
             String message = String.format("登陆失败，详细信息[%s]。", bindingResult.getFieldError().getDefaultMessage());
             return ResultFactory.buildFailResult(message);
         }
+
         /*
         HttpPost post = null;
         try {
